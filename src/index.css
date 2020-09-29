@@ -11,3 +11,178 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html {
+  background-color: rgb(36, 41, 46);
+}
+
+
+.main-box {
+  min-height: 800px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 70px auto;
+  border-radius: 10px;
+
+  padding: 0 25px;
+}
+
+.card__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+
+  list-style: none;
+  padding: 20px 0;  
+}
+
+.card {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  line-height: 22px;
+  text-align: center;
+  width: 180px;
+  border-radius: 8px;
+  word-wrap: break-word;
+  align-self: stretch;
+}
+
+.card__title {
+  font-size: 21px;
+  margin: 5px 0;
+}
+
+
+.red {
+  background-color: #5c2b29;
+}
+
+.blue {
+  background-color: #1e3a5f;
+}
+
+.orange {
+  background-color: #614a19;
+}
+
+.purple {
+  background-color: #5b2245;
+}
+
+.green {
+  background-color: #345920;
+}
+
+.black {
+  background-color: rgb(36, 41, 46);
+  border: 1px solid rgba(209, 209, 209, 0.2);
+}
+
+
+/* =================== NEW CARD FORM ============================= */
+
+.new-card__placeholder {
+  border: 1px solid rgba(209, 209, 209, 0.2);
+  font-size: 25px;
+  color: rgba(209, 209, 209, 0.8);
+  padding: 10px 20px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  cursor: text;
+  text-align: start;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+
+}
+
+.new-card__form {
+  
+  border: 1px solid rgba(209, 209, 209, 0.2);
+  border-radius: 10px;
+}
+
+.new-card__form-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.new-card__input-title {
+  background-color: transparent;
+  box-sizing: border-box;
+  font-size: 25px;
+  padding: 10px 0;
+  color: rgba(209, 209, 209, 0.8);
+  width: 100%;
+  outline: none;
+  border: none;
+  margin-bottom: 5px;
+  border-bottom: 1px solid rgba(209, 209, 209, 0.1);
+  padding: 10px 20px;
+}
+
+.new-card__input-text {
+  background-color: transparent;
+  font-size: 18px;
+  padding: 10px 0;
+  color: rgba(209, 209, 209, 0.7);
+  max-width: 500px;
+  width: 100%;
+  outline: none;
+  border: none;
+  resize: none;
+  height:  200px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.new-card__input-text::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+.new-card__input-text::-webkit-scrollbar-thumb {
+  background: rgba(209, 209, 209, 0.3); 
+  border-radius: 20px;
+}
+
+.input-field:focus {
+  outline: none;
+}
+
+.test__btn {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.invisible-btn {
+  display: none;
+}
+
+
+/* ========================= COLOR SELECT =================== */
+
+.color-select__btn {
+  height: 30px;
+  width: 30px;
+  border: none;
+  margin-left: 20px;
+  border: 1px solid rgba(209,209,209,0.3);
+  border-radius: 50%;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: 0.07s ease-in;
+  box-shadow: 0px 0px 10px rgba(22, 22, 22, 0.8);
+}
+.color-select__btn:hover {
+  transform: scale(1.1);
+}
+
+.color-select__btn:focus {
+  outline: none;
+}
