@@ -1,17 +1,17 @@
 import * as React from 'react';
 import ColorButton from './ColorButton';
-import { CardColors } from './MainContainer';
+import { NoteColors } from './MainContainer';
 
 export interface Props {
-  setColor: (color: CardColors) => void
-  color: CardColors
+  setColor: (color: NoteColors) => void
+  color: NoteColors
 }
 
 const ColorSelect = (props: Props) => {
   
   return (
     <>
-    {Object.values(CardColors).map(color => (
+    {Object.values(NoteColors).map(color => (
       <ColorButton
         key={color}
         color={color}

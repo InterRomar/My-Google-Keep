@@ -1,26 +1,29 @@
 import * as React from 'react';
 import { Field, Form } from 'react-final-form';
 import ColorSelect from './ColorSelect';
-import { CardColors } from './MainContainer';
+import { NoteColors } from './MainContainer';
 
 export interface Props {
   isCreateFocus: boolean
   formFocus: (value: boolean) => void
-  addCard: (title: string, text: string, color?: CardColors) => void
+  addCard: (title: string, text: string, color?: NoteColors) => void
 }
 
 const  AddCardForm = (props: Props) => {
 
-  const [color, setColor] = React.useState<CardColors>(
-    CardColors.black
+  const [color, setColor] = React.useState<NoteColors>(
+    NoteColors.black
   );
   const ref = React.useRef(null)
-  const inputRef = React.useRef(null)
+  const inputTextRef = React.useRef(null)
+  const inputTitleRef = React.useRef(null)
+
 
   React.useEffect(() => {
     document.addEventListener('click', clickListener);
     document.addEventListener('keyup', escapeListener);
-    (inputRef.current! as any).focus();
+    document.addEventListener('keyup', tabListener);
+    (inputTextRef.current! as any).focus();
     return () => {
       document.removeEventListener('click', clickListener)
       document.removeEventListener('keyup', escapeListener)
@@ -30,6 +33,13 @@ const  AddCardForm = (props: Props) => {
   const escapeListener = React.useCallback((e: KeyboardEvent): void => {
     if (e.key === 'Escape') {
       props.formFocus(false);
+    }
+  }, [])
+  
+  const tabListener = React.useCallback((e: KeyboardEvent): void => {
+    if (e.key === 'Tab') {
+      (inputTitleRef.current! as any).focus();
+      document.removeEventListener('keyup', tabListener)
     }
   }, [])
 
@@ -67,6 +77,7 @@ const  AddCardForm = (props: Props) => {
                   component="input"
                   type="text"
                   placeholder="Title"
+                  ref={inputTitleRef}
                 />
               </div>
 
@@ -77,7 +88,7 @@ const  AddCardForm = (props: Props) => {
                   autoComplete='off'
                   component="textarea"
                   placeholder="New note.."
-                  ref={inputRef}
+                  ref={inputTextRef}
                   />
               </div>
 

@@ -23,6 +23,7 @@ html {
   max-width: 1200px;
   margin: 70px auto;
   border-radius: 10px;
+  position: relative;
 
   padding: 0 25px;
 }
@@ -41,18 +42,127 @@ html {
   color: rgba(255, 255, 255, 0.7);
   margin: 0 10px;
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 15px 15px 45px;
   line-height: 22px;
   text-align: center;
   width: 180px;
   border-radius: 8px;
   word-wrap: break-word;
   align-self: stretch;
+  transition: 0.1s ease-in;
+  position: relative;
 }
+
+.card.black {
+  border: 1px solid rgba(209, 209, 209, 0.2);
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card__edit-modal {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  z-index: 10;
+  transform: translate(50%, 50%);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.card-edit__form {
+  height: 100%;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 2px 2px 15px rgba(209, 209, 209, 0.05);
+}
+
+.card-edit__form .input-text__row {
+  height: 65%;
+}
+
+.card-edit__input-title {
+  background: transparent;
+  border: none;
+  color: rgba(209, 209, 209, 0.7);
+  font-size: 25px;
+  width: 100%;
+  margin: 10px 0 20px;
+  text-align: center;
+}
+.card-edit__input-title:focus, 
+.card-edit__input-text:focus {
+  outline: none;
+}
+
+.card-edit__input-text {
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  color: rgba(209, 209, 209, 0.7);
+  font-size: 20px;
+  width: 99%;
+  padding: 0 30px;
+  margin-bottom: 30px;
+  height: 100%;
+  resize: none;
+}
+
+.card-edit__submit {
+  border: none;
+  background: none;
+  color: rgba(209, 209, 209, 0.7);
+  font-size: 35px;
+  text-transform: uppercase;
+  border: 1px solid rgba(209, 209, 209, 0.7);
+  padding: 6px 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.05s ease-in;
+}
+
+.card-edit__submit:hover {
+  background-color: rgba(255,255,255,0.05);
+  transform: scale(1.02);
+}
+
 
 .card__title {
   font-size: 21px;
   margin: 5px 0;
+}
+
+.card__delete-button {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 25px;
+  border: none;
+  background-color: transparent;
+  color: rgba(209, 209, 209, 0.8);
+  cursor: pointer;
+  transition: 0.04s ease-in;
+}
+
+.card__delete-button:hover {
+  transform: scale(1.1);
+}
+
+.card__delete-button:focus {
+  outline: none;
+  color: rgba(209, 209, 209, 1);
 }
 
 
@@ -78,7 +188,7 @@ html {
 
 .black {
   background-color: rgb(36, 41, 46);
-  border: 1px solid rgba(209, 209, 209, 0.2);
+  /* border: 1px solid rgba(209, 209, 209, 0.2); */
 }
 
 
@@ -141,11 +251,13 @@ html {
   box-sizing: border-box;
 }
 
-.new-card__input-text::-webkit-scrollbar {
+.new-card__input-text::-webkit-scrollbar,
+.card-edit__input-text::-webkit-scrollbar {
   background-color: transparent;
   width: 5px;
 }
-.new-card__input-text::-webkit-scrollbar-thumb {
+.new-card__input-text::-webkit-scrollbar-thumb,
+.card-edit__input-text::-webkit-scrollbar-thumb {
   background: rgba(209, 209, 209, 0.3); 
   border-radius: 20px;
 }
